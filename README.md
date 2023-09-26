@@ -1,8 +1,8 @@
-#Introduction
+# Introduction
 
 Solr is one of the most popular open-source enterpise-search platform. Running it on Kubernetes has become substantially easy. In this tutorial, you will learn to deploy Solr to Akamai's Linode Kubernetes Engine (LKE) within minutes. LKE is a great option for both individual and enterprise users, as it provides a fully managed vanilla Kubernetes. Pricing is also simple in that you only pay for the infrastructure (e.g. compute nodes, network) without any separate fees for Kubernetes operation. All nodes come with generous network transfer allowance, which helps users keep cost low. 
 
-#Create LKE Cluster
+# Create LKE Cluster
 On your browser, navigate to [https://login.linode.com](https://login.linode.com). If you already have an account, you can log into it, otherwise, you may sign up. Once logged into the Linode Cloud Console, click on the "Create" button then on the "Kubernetes" option in the dropdown menu.
 
 ![Create a Kubernetest cluster](./images/image5.png "LKE cluster creation")
@@ -30,7 +30,7 @@ $ kubectl get pods -o wide
 You should see a list of pods running in your cluster
 
 
-#Deploy Solr to LKE Cluster
+# Deploy Solr to LKE Cluster
 
 Now that you have a Kubernetes cluster running, it's time to deploy Solr to it. You can easily do so by using a Helm chart for Solr, which is available on [VMware's Bitnami repository](https://bitnami.com/stack/solr/helm). 
 
@@ -56,7 +56,7 @@ $ kubectl port-forward --namespace default svc/solr-test 8983:8983 &
 
 Please note the `&` at the end of the command, which would run the forwarder as a background process. If you wish to see output of the forwarder, then run it without the `&` and open up another terminal window to proceed the next step.
 
-#Interact with Solr using Dashboard
+# Interact with Solr using Dashboard
 
 You can now open your browser and go to `http://127.0.0.1:8983`. The username is `admin` and the password is the one you captured two steps ago.
 
@@ -72,7 +72,7 @@ Then add the user to a role and grant it all available permission for now to mak
 
 ![Add roles](./images/addroles.png "Add roles")
 
-#Populate Data into Solr
+# Populate Data into Solr
 This repo comes with a sample data, which is top articles on September 26th, 2023 from [newsapi.org](https://newsapi.org/)
 
 First, you need to create a collection. In your terminal, run the following command:
@@ -158,7 +158,7 @@ which would output a response like below:
 }
 ```
 
-#Verify Solr Search Works
+# Verify Solr Search Works
 
 Search for articles whose title contains `bitcoin`:
 
